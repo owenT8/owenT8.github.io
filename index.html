@@ -18,7 +18,7 @@
                     </div>
                     <nav class="use-middle">
                         <ul>
-                            <li><button class="open-modal" onclick="window.dialog.showModal();">About</button></li>
+                            <li><button class="open-modal" data-modal="modal1">About</button></li>
                             <li><button class="open-modal" data-modal="modal2">Education</button></li>
                             <li><button class="open-modal" data-modal="modal3">Experience</button></li>
                             <li><button class="open-modal" data-modal="modal5">Contact</button></li>
@@ -29,14 +29,6 @@
         </div>
 
         <main>
-            <div class="modal-container">
-                <dialog id="dialog">
-                    <h2>Hello.</h2>
-                    <p>A CSS-only modal based on the <a href="https://developer.mozilla.org/es/docs/Web/CSS/::backdrop" target="_blank">::backdrop</a> pseudo-class. Hope you find it helpful.</p>
-                    <p>You can also change the styles of the <code>::backdrop</code> from the CSS.</p>
-                    <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
-                </dialog>
-            </div>
             <div id="modal1" class="modal">
                 <div class="modal-content">
                   <span class="close">&times;</span>
