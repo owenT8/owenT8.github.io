@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="bg">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+        <div class="container">
+            <header id="header">
+                <div class="content">
+                    <div class="inner">
+                        <h1>Owen Taylor</h1>
+                        <p>
+                            Software Engineer
+                        </p>
+                    </div>
+                    <nav class="use-middle">
+                        <ul>
+                            <li><button class="open-modal" onclick="window.dialog.showModal();">About</button></li>
+                            <li><button class="open-modal" data-modal="modal2">Education</button></li>
+                            <li><button class="open-modal" data-modal="modal3">Experience</button></li>
+                            <li><button class="open-modal" data-modal="modal5">Contact</button></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        </div>
+
+        <main>
+            <div class="modal-container">
+                <dialog id="dialog">
+                    <h2>Hello.</h2>
+                    <p>A CSS-only modal based on the <a href="https://developer.mozilla.org/es/docs/Web/CSS/::backdrop" target="_blank">::backdrop</a> pseudo-class. Hope you find it helpful.</p>
+                    <p>You can also change the styles of the <code>::backdrop</code> from the CSS.</p>
+                    <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+                </dialog>
+            </div>
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>About</h2>
+                  <img src="me.jpeg" width="300">
+                  <p>Hi, I'm Owen! I'm currently pursuing my degree in Computer Science at the University of Colorado Boulder. 
+                    As a Colorado native and love to hike, ski, and get outside in general. Please reachout through my Contact page!
+                  </p>
+                </div>
+            </div>
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Education</h2>
+                  <ul>
+                    <li> University of Colorado - Bachelor of Science in Computer Science
+                        <ul>
+                            <li>GPA: 3.96</li>
+                            <li>Graduating May 2025</li>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Experience</h2>
+                  <ul>
+                    <li> Goldman Sachs - Summer Engineering Analyst
+                        <ul>
+                            <li>Migrated SQL queries to REST APIs using Goldman Sachs' standard data modeling software. This significantly improved the time to retrieve over 10 million rows of data and allowed for cloud migration</li>
+                            <li>Fixed memory limitations in Java by changing the REST API retrieval method from Strings to Streams</li>
+                            <li>Migrated a Kubernetes application to AWS</li>
+                            <li>Gained industry experience in Java, SQL, Git, REST APIs, Kubernetes, and AWS</li>
+                            <li>Received mentorship from industry experts and explored diverse career paths within one of the world's leading financial institutions</li>
+                        </ul>
+                    </li>
+                    <li> University of Colorado Boulder - Learning Assistant
+                        <ul>
+                            <li>Developed effective processes to explain and communicate basic coding concepts to first-year students</li>
+                            <li>Successfully assisted many students with coding assignments and projects</li>
+                            <li>Created an approachable atmosphere for students to ask questions about their assignment</li>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            <div id="modal5" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Contact</h2>
+                  <ul>
+                    <li>taylorowen294@gmail.com</li>
+                    <li><a href="https://www.linkedin.com/in/owentaylor2002/">LinkedIn</a></li>
+                </ul>
+                </div>
+            </div>
+            <script>
+                // Get all modal buttons
+var modalButtons = document.querySelectorAll('.open-modal');
+
+// Get all modals
+var modals = document.querySelectorAll('.modal');
+
+// Get all close buttons
+var closeButtons = document.querySelectorAll('.close');
+
+console.log(modalButtons.length)
+console.log(modals.length)
+// Function to open the modal
+modalButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    var modalId = this.getAttribute('data-modal');
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+  });
+});
+
+// Function to close the modal
+closeButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    var modal = this.parentElement.parentElement;
+    modal.style.display = 'none';
+  });
+});
+
+// Close the modal if clicked outside of the modal content
+window.onclick = function(event) {
+  modals.forEach(modal => {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
+};
+            </script>
+            <!-- <article id="about">
+                <h2 class="major">About</h2>
+                <span class="image main"><img src="" alt="" /></span>
+                <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+            </article> -->
+            <!-- <article id="education">
+                <h2 class="major">Education</h2>
+                <span class="image main"><img src="" alt="" /></span>
+                <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+            </article>
+            <article id="experience">
+                <h2 class="major">Experience</h2>
+                <span class="image main"><img src="" alt="" /></span>
+                <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+            </article>
+            <article id="projects">
+                <h2 class="major">Projects</h2>
+                <span class="image main"><img src="" alt="" /></span>
+                <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+            </article>
+            <article id="Contact">
+                <h2 class="major">Contact</h2>
+                <span class="image main"><img src="" alt="" /></span>
+                <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+            </article> -->
+        </main>
+  </body>
+  </div>
+</html>
